@@ -1,0 +1,11 @@
+<%= render :partial => 'admin/shared/configuration_menu' %>
+
+<h1>Editing Content Chunk</h1>
+<%= render "shared/error_messages", :target => @content_chunk %>
+<%= form_for(@content_chunk, :url => object_url, :html => { :method => :put, :multipart => true }) do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <p class="form-buttons" data-hook="form-buttons">
+    <%= button t('update') %>
+    <%= t("or") %> <%= link_to t("actions.cancel"), admin_content_chunks_url %>
+  </p>
+<% end %>

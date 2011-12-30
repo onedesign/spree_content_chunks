@@ -1,0 +1,34 @@
+<table data-hook="admin_content_chunk_form">
+  <tr data-hook="title">
+    <td><label>Title</label></td>
+    <td><%= f.text_field :title %></td>
+  </tr>
+  <tr data-hook="body">
+    <td><label>Body</label></td>
+    <td><%= f.text_area :body %></td>
+  </tr>
+  <tr data-hook="link">
+    <td><label>Link</label></td>
+    <td><%= f.text_field :link %></td>
+  </tr>
+  <tr data-hook="image">
+    <td><label>Image</label></td>
+    <td><%= f.file_field :image %></td>
+    <% if !@content_chunk.new_record? && @content_chunk.image? %>
+    <td>
+      <%= image_tag(@content_chunk.image.url) %><br>
+      <%= f.check_box :delete_image %>&nbsp;<label for="content_chunk_delete_image">Delete this image</label>
+    </td>
+    <% end %>
+  </tr>
+  <tr data-hook="image_position">
+    <td><label>Image Position</label></td>
+    <td>
+      <%= f.text_field :image_position %><br>
+    </td>
+  </tr>
+  <tr data-hook="kind">
+    <td><label>Kind</label></td>
+    <td><%= f.text_field :kind %></td>
+  </tr>
+</table>

@@ -1,0 +1,34 @@
+<%= render :partial => 'admin/shared/configuration_menu' %>
+
+<div class='toolbar' data-hook="toolbar">
+  <ul class='actions'>
+    <li>
+      <%= button_link_to "New Content Chunk", new_object_url, :icon => 'add', :id => 'admin_new_content_chunk_link'  %>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+<h1>Content Chunks</h1>
+
+<table class="index" id="content_chunks_listing">
+  <thead data-hook="admin_content_chunks_index_headers">
+    <th>Title</th>
+    <th>Kind</th>
+    <th>Visible On</th>
+    <th><%= t("action") %></th>
+  </thead>
+  <tbody>
+    <% @content_chunks.each do |content_chunk|%>
+      <tr id="<%= dom_id content_chunk %>" data-hook="admin_content_chunks_index_rows">
+        <td><%= content_chunk.title %></td>
+        <td><%= content_chunk.kind %></td>
+        <td><%= (content_chunk.stores.collect &:name).join(', ') %></td>
+        <td>
+          <%= link_to_edit content_chunk, :class => 'edit' %> &nbsp;
+          <%= link_to_delete content_chunk %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
