@@ -10,7 +10,7 @@ Installation
 
 Include the following in your Gemfile (after the line that includes Spree):
 
-    gem spree_content_chunks, :git => http://github.com/onedesign/spree_content_chunks.git
+    gem spree_content_chunks, :git => git://github.com/onedesign/spree_content_chunks.git
 
 Then run:
 
