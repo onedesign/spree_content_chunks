@@ -23,7 +23,7 @@ Usage
 =====
 
 A section will be added to Spree's configuration page, and can be accessed at
-<site_root>/admin/content_chunks.
+[site_root]/admin/content_chunks.
 
 Use the 'kind' field to distinguish different types of content; e.g. 'Hero' or
 'Call to Action'.
