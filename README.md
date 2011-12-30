@@ -1,12 +1,43 @@
-SpreeContentChunk
-=================
+SpreeContentChunks
+==================
 
-spree_content_chunks is a Spree extension for managing tiny bits of content.
+A Spree extension for managing tiny bits of content.
+By default, the content bits have a title, body, and optional image.
 
-Example
-=======
 
-Example goes here.
+Installation
+============
+
+Include the following in your Gemfile (after the line that includes Spree):
+
+    gem spree_content_chunks, :git => http://github.com/onedesign/spree_content_chunks.git
+
+Then run:
+
+    bundle install
+    rake railties:install:migrations FROM=spree_content_chunks
+    rake db:migrate
+
+
+Usage
+=====
+
+A section will be added to Spree's configuration page, and can be accessed at
+<site_root>/admin/content_chunks.
+
+Use the 'kind' field to distinguish different types of content; e.g. 'Hero' or
+'Call to Action'.
+
+To use the content chunks in your store (say, to display a series of hero images):
+
+    <div id="hero_images">
+    <% ContentChunk.where(:kind => 'Hero').each do |chunk| %>
+      <div class="hero" style="background-image:url(<%= chunk.image.url %>)">
+        <h3><%= chunk.title %></h3>
+        <div><%= chunk.body %></div>
+      </div>
+    <% end %>
+
 
 Testing
 -------
