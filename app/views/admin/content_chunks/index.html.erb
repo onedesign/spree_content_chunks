@@ -15,7 +15,6 @@
   <thead data-hook="admin_content_chunks_index_headers">
     <th>Title</th>
     <th>Kind</th>
-    <th>Visible On</th>
     <th><%= t("action") %></th>
   </thead>
   <tbody>
@@ -23,7 +22,6 @@
       <tr id="<%= dom_id content_chunk %>" data-hook="admin_content_chunks_index_rows">
         <td><%= content_chunk.title %></td>
         <td><%= content_chunk.kind %></td>
-        <td><%= (content_chunk.stores.collect &:name).join(', ') %></td>
         <td>
           <%= link_to_edit content_chunk, :class => 'edit' %> &nbsp;
           <%= link_to_delete content_chunk %>
