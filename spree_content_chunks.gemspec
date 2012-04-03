@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_content_chunks'
-  s.version     = '0.1'
+  s.version     = '0.2'
   s.summary     = 'Spree extension for managing small chunks of content (e.g. calls to action, hero images)'
   s.required_ruby_version = '>= 1.8.7'
 
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '>= 0.70.3'
+  s.add_dependency 'spree_core', '>= 1.0.0'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'shoulda-matchers'
 end

@@ -48,4 +48,4 @@ app for the specs to run against.
     $ bundle exec rake test_app
     $ bundle exec rspec spec
 
-Copyright (c) 2011 One Design Company, released under the New BSD License
+Copyright (c) 2011-2012 One Design Company, released under the New BSD License
