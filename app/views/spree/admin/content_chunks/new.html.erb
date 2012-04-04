@@ -1,7 +1,7 @@
-<%= render :partial => 'admin/shared/configuration_menu' %>
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
 <h1>New Content Chunk</h1>
-<%= render "shared/error_messages", :target => @content_chunk %>
+<%= render "spree/shared/error_messages", :target => @content_chunk %>
 <%= form_for(@content_chunk, :url => collection_url, :html => { :multipart => true }) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
   <p class="form-buttons" data-hook="buttons">

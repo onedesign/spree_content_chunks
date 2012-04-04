@@ -1,4 +1,4 @@
-class ContentChunk < ActiveRecord::Base
+class Spree::ContentChunk < ActiveRecord::Base
   has_attached_file :image,
                     :url => "/spree/content_chunks/:id/main/:style/:basename.:extension",
                     :path => ":rails_root/public/spree/content_chunks/:id/main/:style/:basename.:extension"
