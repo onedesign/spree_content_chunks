@@ -1,5 +1,7 @@
 class Spree::ContentChunk < ActiveRecord::Base
-  attr_accessible :title, :body, :link, :image_position, :kind, :image
+  default_scope order(:position) # Makes the chunks be ordered by position,regardless of type.
+  
+  attr_accessible :title, :body, :link, :image_position, :kind, :image, :position
   has_attached_file :image,
                     :url => "/spree/content_chunks/:id/main/:style/:basename.:extension",
                     :path => ":rails_root/public/spree/content_chunks/:id/main/:style/:basename.:extension"
