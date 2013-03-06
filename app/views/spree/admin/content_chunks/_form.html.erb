@@ -1,34 +1,58 @@
-<table data-hook="admin_content_chunk_form">
-  <tr data-hook="title">
-    <td><label>Title</label></td>
-    <td><%= f.text_field :title %></td>
-  </tr>
-  <tr data-hook="body">
-    <td><label>Body</label></td>
-    <td><%= f.text_area :body %></td>
-  </tr>
-  <tr data-hook="link">
-    <td><label>Link</label></td>
-    <td><%= f.text_field :link %></td>
-  </tr>
-  <tr data-hook="image">
-    <td><label>Image</label></td>
-    <td><%= f.file_field :image %></td>
-    <% if !@content_chunk.new_record? && @content_chunk.image? %>
-    <td>
-      <%= image_tag(@content_chunk.image.url) %><br>
-      <%= f.check_box :delete_image %>&nbsp;<label for="content_chunk_delete_image">Delete this image</label>
-    </td>
-    <% end %>
-  </tr>
-  <tr data-hook="image_position">
-    <td><label>Image Position</label></td>
-    <td>
-      <%= f.text_field :image_position %><br>
-    </td>
-  </tr>
-  <tr data-hook="kind">
-    <td><label>Kind</label></td>
-    <td><%= f.text_field :kind %></td>
-  </tr>
-</table>
+<div data-hook="admin_content_chunk_form">
+  <div class="clearfix">
+    <div class="left" data-hook="admin_content_chunk_form_left">
+      <div data-hook="title">
+        <%= f.field_container :title do %>
+          <%= f.label :title, t(:title) %> <span class="required">*</span><br />
+          <%= f.text_field :title, :class => 'fullwidth title' %>
+          <%= f.error_message_on :title %>
+        <% end %>
+      </div>
+
+      <div data-hook="body">
+        <%= f.field_container :body do %>
+          <%= f.label :body, t(:body) %><br />
+          <%= f.text_area :body, :class => 'fullwidth title tinymce' %>
+          <%= f.error_message_on :body %>
+        <% end %>
+      </div>
+
+      <div data-hook="link">
+        <%= f.field_container :link do %>
+          <%= f.label :link, t(:link) %><br />
+          <%= f.text_field :link, :class => 'fullwidth title' %>
+          <%= f.error_message_on :link %>
+        <% end %>
+      </div>
+
+      <div data-hook="image">
+        <%= f.field_container :image do %>
+          <%= f.label :image, t(:image) %><br />
+          <%= f.file_field :image, :class => 'fullwidth title' %>
+          <%= f.error_message_on :image %>
+
+          <% if !@content_chunk.new_record? && @content_chunk.image? %>
+            <%= image_tag(@content_chunk.image.url) %><br />
+            <%= f.check_box :delete_image %>&nbsp;<%= f.label :delete_image, t(:delete_image) %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div data-hook="image_position">
+        <%= f.field_container :image_position do %>
+          <%= f.label :image_position, t(:image_position) %><br />
+          <%= f.text_field :image_position, :class => 'title' %>
+          <%= f.error_message_on :image_position %>
+        <% end %>
+      </div>
+
+      <div data-hook="kind">
+        <%= f.field_container :kind do %>
+          <%= f.label :kind, t(:kind) %> <span class="required">*</span><br />
+          <%= f.text_field :kind, :class => 'fullwidth title' %>
+          <%= f.error_message_on :kind %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
