@@ -8,4 +8,6 @@ class Spree::ContentChunk < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :kind, :presence => true
+
+  attr_accessible :title, :body, :link, :kind, :image_file_name, :image_content_type, :image_file_size, :image_updated_at, :image_position
 end
